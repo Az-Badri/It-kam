@@ -1,0 +1,10 @@
+.content{
+    grid-area: c;
+    background-color: darksalmon;
+  }
+
+.likes{
+    font-size: 15px;
+    color: wheat;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }

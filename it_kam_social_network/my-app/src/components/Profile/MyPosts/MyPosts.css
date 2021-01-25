@@ -1,0 +1,13 @@
+.content{
+    grid-area: c;
+    background-color: darksalmon;
+  }
+.content textarea{
+  width: 800px;
+}
+.posts{
+  padding: 10px;
+}
+.newpost{
+  padding: 10px;
+}

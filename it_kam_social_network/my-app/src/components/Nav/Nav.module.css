@@ -1,0 +1,36 @@
+.nav{
+    grid-area: n;
+    background-color: darkmagenta;
+  }
+.nav li {
+    list-style: none;
+    font-family: Calibri;
+    font-size: 23px;
+}
+
+a {
+  color: whitesmoke;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+a:active {
+  color: gold;
+}
+
+.friendSection{
+  padding-top: 150px;
+  margin-bottom: 40px;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 13px;
+  font-style: italic;
+}
+.friendSection img{
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+}
+.friendSection img:hover {
+  transform: scale(1.7);
+}
