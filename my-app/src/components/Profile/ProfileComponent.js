@@ -6,9 +6,9 @@ const ProfileInfo = (props) =>{
   return (
     <div>
       <div>
-        <img class={s.faces} src={props.avatar_addr}></img>
+        <img className={s.faces} src={props.avatar_addr}></img>
       </div>
-      <div class={s.description_block}>
+      <div className={s.description_block}>
         
       </div>
     </div>
@@ -23,7 +23,7 @@ const ProfileComponent = (props) =>{
          <ProfileInfo avatar_addr="https://celebslifereel.com/wp-content/uploads/2018/05/Brooke-Bush.jpg" />
         <h1>Brook Bush</h1> 
        </div>
-       <MyPosts newPostText={props.newPostText} addPost={props.addPost} PostData={props.PostData} />
+       <MyPosts updateNewPostText={props.updateNewPostText} newPostText={props.newPostText} addPost={props.addPost} PostData={props.PostData} />
      </div>
     )
 }

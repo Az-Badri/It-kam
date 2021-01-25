@@ -4,7 +4,7 @@ import './Settings.module.css'
 let Settings = () =>{
     return (
         <div>
-            HERE YOU WILL SERT UP THINGS
+            HERE YOU WILL SET UP THINGS
         </div>
     )
 }

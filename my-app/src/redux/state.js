@@ -20,7 +20,7 @@ let AppState = {
             message: 'OBEY!',
         },
     ],
-    newPostText: 'pisya',
+    newPostText: 'put your text in here',
 },
     Messages: {
         
@@ -46,13 +46,19 @@ let AppState = {
     
 
 }
-export let addPost = (postMessage) =>{
+export let addPost = () =>{
     let newPost = {
         id: 2,
         likes: 0,
-        message: postMessage,
+        message: AppState.Profile.newPostText,
     };
     AppState.Profile.PostData.push(newPost);
+    AppState.Profile.newPostText = ' ';
+    rerenderEntireTree(AppState);
+}
+
+export let updateNewPostText = (newText) =>{
+    AppState.Profile.newPostText = newText;
     rerenderEntireTree(AppState);
 }
 

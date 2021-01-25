@@ -19,7 +19,7 @@ function App(props) {
              <Dialogs DialogsText={props.state.Messages.DialogsText} DialogsData={props.state.Messages.DialogsData}/>
           </Route>
           <Route exact path='/profile' render={
-            () => < ProfileComponent newPostText={props.newPostText}
+            () => < ProfileComponent updateNewPostText={props.updateNewPostText} newPostText={props.state.Profile.newPostText}
             PostData={props.state.Profile.PostData} addPost={props.addPost} /> }>
           </Route>
           <Route path='/news' component={News}/>
