@@ -12,15 +12,16 @@ function App(props) {
   return (
     <BrowserRouter>
       <div className="wrapper">
-        <Header/>
+        <Header />
         <Navbar DialogsData={props.state.Messages.DialogsData}/>
         <div className='app-wrapper-content'>
           <Route exact path='/dialogs'>
-             <Dialogs DialogsText={props.state.Messages.DialogsText} DialogsData={props.state.Messages.DialogsData}/>
+             <Dialogs updateNewMessageText={props.updateNewMessageText} addNewMessage={props.addNewMessage} 
+             newMessageText={props.state.Messages.newMessageText} DialogsText={props.state.Messages.DialogsText} DialogsData={props.state.Messages.DialogsData}/>
           </Route>
           <Route exact path='/profile' render={
-            () => < ProfileComponent updateNewPostText={props.updateNewPostText} newPostText={props.state.Profile.newPostText}
-            PostData={props.state.Profile.PostData} addPost={props.addPost} /> }>
+            () => < ProfileComponent updateNewPostText={props.updateNewPostText}  addPost={props.addPost}
+            newPostText={props.state.Profile.newPostText} PostData={props.state.Profile.PostData} /> }>
           </Route>
           <Route path='/news' component={News}/>
           <Route path='/settings' component={Settings}/>

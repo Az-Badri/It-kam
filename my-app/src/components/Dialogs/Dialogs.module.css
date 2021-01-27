@@ -41,3 +41,8 @@
 .dialog img:hover {
   transform: scale(1.7);
 }
+
+.newMessage{
+  margin-left: 10px;
+  margin-top:2px;
+}

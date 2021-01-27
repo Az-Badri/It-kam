@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom'
 
 let Navbar = (props) =>{
   let friendElements = props.DialogsData.filter(friend =>(friend.id > 1 && friend.id < 5 )).map(friend =>
-    <img  id={friend.id} name={friend.name} src={friend.face} />
+    <img alt="friend" id={friend.id} name={friend.name} src={friend.face} />
  )
   let arrlength = (storage) =>{
     let counter = 0;
