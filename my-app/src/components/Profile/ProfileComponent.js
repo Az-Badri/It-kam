@@ -23,7 +23,7 @@ const ProfileComponent = (props) =>{
          <ProfileInfo alt="face_avatar" avatar_addr="https://celebslifereel.com/wp-content/uploads/2018/05/Brooke-Bush.jpg" />
         <h1>Brook Bush</h1> 
        </div>
-       <MyPosts updateNewPostText={props.updateNewPostText} newPostText={props.newPostText} addPost={props.addPost} PostData={props.PostData} />
+       <MyPosts  dispatch={props.dispatch} newPostText={props.newPostText} PostData={props.PostData} />
      </div>
     )
 }

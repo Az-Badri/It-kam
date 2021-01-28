@@ -47,6 +47,10 @@ let Store = {
 
     },
 
+    _callSubscriber() {
+        console.log('state changed')
+    },
+
     get getState() {
         return this._AppState;
     },
@@ -82,13 +86,37 @@ let Store = {
         this._callSubscriber();
     },
 
-    _callSubscriber() {
-        console.log('state changed')
-    },
-
     subscribe(observer) {
         this._callSubscriber = observer;
     },
+    
+    dispatch(action){
+        if (action.type === 'ADD-POST'){
+            let newPost = {
+                id: 2,
+                likes: 0,
+                message: Store._AppState.Profile.newPostText,
+            };
+            this._AppState.Profile.PostData.push(newPost);
+            this._AppState.Profile.newPostText = ' ';
+            this._callSubscriber(this._AppState);
+        }else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+            this._AppState.Profile.newPostText = action.newText;
+            this._callSubscriber(this._AppState); 
+        }else if(action.type === 'ADD-NEW-MESSAGE' ){
+            let newMessage = {
+                id: 3000,
+                text: Store._AppState.Messages.newMessageText,
+            };
+            this._AppState.Messages.DialogsText.push(newMessage);
+            this._AppState.Messages.newMessageText = ' ';
+            this._callSubscriber(this._AppState);
+        }else if(action.type === 'UPDATE-NEW-MESSAGE-TEXT' ){
+            this._AppState.Messages.newMessageText = action.newMessage;
+            this._callSubscriber();
+        }
+
+    }
 }
 export default Store
 window.Store = Store /* to access store globally */
