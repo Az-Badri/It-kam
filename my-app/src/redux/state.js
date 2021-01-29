@@ -1,3 +1,6 @@
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
+import sidebarReducer from "./sidebar-reducer";
 
 let Store = {
 
@@ -41,9 +44,10 @@ let Store = {
                 {id:"5", text:"miss ya"},
                 {id:"6", text:"listen to me, babe"},
             ],
-            newMessageText: 'type here',
+            newMessageText: "",
 
         },
+        sideBar: {}
 
     },
 
@@ -55,67 +59,15 @@ let Store = {
         return this._AppState;
     },
 
-    addPost()   {
-        let newPost = {
-            id: 2,
-            likes: 0,
-            message: Store._AppState.Profile.newPostText,
-        };
-        this._AppState.Profile.PostData.push(newPost);
-        this._AppState.Profile.newPostText = ' ';
-        this._callSubscriber(this._AppState);
-    },
-
-    updateNewPostText(newText) {
-        this._AppState.Profile.newPostText = newText;
-        this._callSubscriber(this._AppState);
-    },
-
-    addNewMessage() {
-        let newMessage = {
-            id: 3000,
-            text: Store._AppState.Messages.newMessageText,
-        };
-        this._AppState.Messages.DialogsText.push(newMessage);
-        this._AppState.Messages.newMessageText = ' ';
-        this._callSubscriber(this._AppState);
-    },
-
-    updateNewMessageText(newMessage) {
-        this._AppState.Messages.newMessageText = newMessage;
-        this._callSubscriber();
-    },
-
     subscribe(observer) {
         this._callSubscriber = observer;
     },
     
     dispatch(action){
-        if (action.type === 'ADD-POST'){
-            let newPost = {
-                id: 2,
-                likes: 0,
-                message: Store._AppState.Profile.newPostText,
-            };
-            this._AppState.Profile.PostData.push(newPost);
-            this._AppState.Profile.newPostText = ' ';
-            this._callSubscriber(this._AppState);
-        }else if (action.type === 'UPDATE-NEW-POST-TEXT'){
-            this._AppState.Profile.newPostText = action.newText;
-            this._callSubscriber(this._AppState); 
-        }else if(action.type === 'ADD-NEW-MESSAGE' ){
-            let newMessage = {
-                id: 3000,
-                text: Store._AppState.Messages.newMessageText,
-            };
-            this._AppState.Messages.DialogsText.push(newMessage);
-            this._AppState.Messages.newMessageText = ' ';
-            this._callSubscriber(this._AppState);
-        }else if(action.type === 'UPDATE-NEW-MESSAGE-TEXT' ){
-            this._AppState.Messages.newMessageText = action.newMessage;
-            this._callSubscriber();
-        }
-
+        this._AppState.Profile = profileReducer(this._AppState.Profile, action);
+        this._AppState.Messages = dialogsReducer( this._AppState.Messages, action);
+        this._callSubscriber(this._AppState);
+       /*  this._AppState.sideBar = sidebarReducer(this._AppState.sideBar, action); */
     }
 }
 export default Store
