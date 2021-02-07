@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './ProfileComponent.module.css'
-import MyPosts from './MyPosts/MyPosts.js'
+import MyPostsContainer from './MyPosts/MyPostsContainer'
 
 const ProfileInfo = (props) =>{
   return (
@@ -23,7 +23,7 @@ const ProfileComponent = (props) =>{
          <ProfileInfo alt="face_avatar" avatar_addr="https://celebslifereel.com/wp-content/uploads/2018/05/Brooke-Bush.jpg" />
         <h1>Brook Bush</h1> 
        </div>
-       <MyPosts  dispatch={props.dispatch} newPostText={props.newPostText} PostData={props.PostData} />
+       <MyPostsContainer   Store={props.Store} />
      </div>
     )
 }

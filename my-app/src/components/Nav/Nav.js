@@ -3,7 +3,7 @@ import c from './Nav.module.css'
 import {NavLink} from 'react-router-dom'
 
 let Navbar = (props) =>{
-  let friendElements = props.DialogsData.filter(friend =>(friend.id > 1 && friend.id < 5 )).map(friend =>
+  let friendElements = props.DialogsData.filter(friend =>(friend.id > 0 && friend.id < 4 )).map(friend =>
     <img alt="friend" id={friend.id} name={friend.name} src={friend.face} />
  )
   let arrlength = (storage) =>{
