@@ -7,20 +7,27 @@ import DialogsContainer from './components/Dialogs/DialogsContainer.js'
 import News from './components/News/News.js'
 import Settings from './components/Settings/Settings.js'
 import { BrowserRouter, Route } from 'react-router-dom';
+import StoreContext from './StoreContext';
 
-function App(props) {
+function App() {
   return (
     <BrowserRouter>
       <div className="wrapper">
         <Header />
-          <Navbar DialogsData={props.state.Messages.DialogsData}/> 
+        <StoreContext.Consumer>
+          { Store =>
+            {
+              let state = Store.getState(); 
+              return <Navbar DialogsData={state.Messages.DialogsData}/> 
+            }
+          }
+        </StoreContext.Consumer>
         <div className='app-wrapper-content'>
           <Route exact path='/dialogs'>
-              <DialogsContainer Store={props.Store} dispatch={props.dispatch} newMessageText={props.state.Messages.newMessageText}
-             DialogsText={props.state.Messages.DialogsText} DialogsData={props.state.Messages.DialogsData} />
+              <DialogsContainer  />
           </Route>
           <Route exact path='/profile' render={
-            () => < ProfileComponent Store={props.Store} /> }>
+            () => < ProfileComponent  /> }>
           </Route>
           <Route path='/news' component={News}/>
           <Route path='/settings' component={Settings}/>
