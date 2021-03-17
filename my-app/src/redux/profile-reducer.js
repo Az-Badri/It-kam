@@ -24,18 +24,23 @@ newPostText: 'put your text in here',
 
 let profileReducer = (state = initialState, action) =>{
     switch (action.type){ 
-        case ADD_POST:
+        case ADD_POST: {
             let newPost = {
                 id: 2,
                 likes: 0,
                 message: state.newPostText,
             };
-            state.PostData.push(newPost);
-            state.newPostText = ' ';
-            return state;
+            let stateCopy = {...state};
+            stateCopy.PostData= [...state.PostData];
+            stateCopy.PostData.push(newPost);
+            stateCopy.newPostText = ' ';
+            return stateCopy;
+        }
         case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText;
-            return state;
+            let stateCopy = {...state};
+         
+            stateCopy.newPostText = action.newText;
+            return stateCopy;
         default:
             return state;
 }

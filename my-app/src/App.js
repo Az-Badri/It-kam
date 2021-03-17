@@ -7,21 +7,13 @@ import DialogsContainer from './components/Dialogs/DialogsContainer.js'
 import News from './components/News/News.js'
 import Settings from './components/Settings/Settings.js'
 import { BrowserRouter, Route } from 'react-router-dom';
-import StoreContext from './StoreContext';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="wrapper">
         <Header />
-        <StoreContext.Consumer>
-          { Store =>
-            {
-              let state = Store.getState(); 
-              return <Navbar DialogsData={state.Messages.DialogsData}/> 
-            }
-          }
-        </StoreContext.Consumer>
+        <Navbar />
         <div className='app-wrapper-content'>
           <Route exact path='/dialogs'>
               <DialogsContainer  />
