@@ -6,16 +6,16 @@ import DialogItem from "./DialogItem/DialogItem"
 const Dialogs = (props) =>{
 
 let dialogsElements = props.DialogsData.map( dialog =>
-   <DialogItem  id={dialog.id} name={dialog.name} face={dialog.face} />
+   <DialogItem  id={dialog.id} key={dialog.id} name={dialog.name} face={dialog.face} />
 )
-
+debugger;
 let messagesElements = props.DialogsText.map(message => 
-   <Message text={message.text}/>
+   <Message key={message.id} text={message.text}/>
 )
 let addNewMessage = () =>{
     props.addMessage();
 }
-
+ 
 let onMessageChange = (event) =>{
     let body = event.target.value;
     props.updateNewMessage(body);

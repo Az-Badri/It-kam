@@ -2,6 +2,7 @@ import React from 'react'
 import s from './ProfileComponent.module.css'
 import MyPostsContainer from './MyPosts/MyPostsContainer'
 
+
 const ProfileInfo = (props) =>{
   return (
     <div>
